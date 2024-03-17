@@ -4,10 +4,12 @@
 import os
 import sys
 
+CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
+
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend_essentials.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "base.settings.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -16,6 +18,11 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+
+    # This allows easy placement of apps within the interior
+    # backend directory.
+    sys.path.append(os.path.join(CURRENT_PATH, "backend_essentials"))
+
     execute_from_command_line(sys.argv)
 
 

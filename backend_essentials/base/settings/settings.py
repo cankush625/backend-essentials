@@ -110,7 +110,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "backend_essentials.wsgi.application"
+WSGI_APPLICATION = "backend_essentials.base.wsgi.application"
 
 
 # Database
