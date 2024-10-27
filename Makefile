@@ -1,3 +1,8 @@
+export CURRENT_DIR=$(shell pwd)
+export PYTHONPATH=${CURRENT_DIR}
+export PYTHONWARNINGS=ignore::UserWarning
+export DJANGO_SETTINGS_MODULE=base.settings.base
+
 dev-setup:
 	docker-compose up -d postgres redis
 	pip install -U -r requirements.txt
@@ -15,4 +20,4 @@ run-makemigrations:
 	python3 backend_essentials/manage.py makemigrations
 
 run-migrations:
-	python3 backend_essentials/manager.py migrate
+	python3 backend_essentials/manage.py migrate
